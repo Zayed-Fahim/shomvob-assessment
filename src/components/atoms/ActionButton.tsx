@@ -1,5 +1,7 @@
+import React from 'react';
 import { Check, Cross } from '@/constants';
 import { cn } from '@/utils';
+import { Button } from '@/components/atoms';
 
 interface ActionButtonProps {
   text: 'Interview' | 'Shortlist' | 'Confirm' | 'Reject';
@@ -10,13 +12,6 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
   text,
   onClick
 }) => {
-  const buttonStyles = {
-    Interview: 'bg-[#27ACE3]',
-    Shortlist: 'bg-[#079F56]',
-    Confirm: 'bg-[#079F56]',
-    Reject: 'bg-[#FF0000]'
-  };
-
   const textStyles = {
     Interview: 'text-[#27ACE3]',
     Shortlist: 'text-[#079F56]',
@@ -31,17 +26,18 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
       <Check className="text-white h-9 w-9" />
     );
 
+  const variantMap = {
+    Interview: 'interview',
+    Shortlist: 'shortlist',
+    Confirm: 'confirm',
+    Reject: 'reject'
+  } as const;
+
   return (
     <div className="flex flex-col items-center gap-y-2">
-      <button
-        className={cn(
-          'rounded-full h-[44px] w-[44px] cursor-pointer flex justify-center items-center',
-          buttonStyles[text]
-        )}
-        onClick={onClick}
-      >
+      <Button variant={variantMap[text]} size="md" onClick={onClick}>
         {icon}
-      </button>
+      </Button>
 
       <p className={cn('text-xl leading-[120%]', textStyles[text])}>{text}</p>
     </div>

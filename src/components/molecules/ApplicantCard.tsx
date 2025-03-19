@@ -47,7 +47,7 @@ export const ApplicantCard: React.FC<ICandidate> = ({
           </div>
 
           <div className="flex flex-col items-start gap-y-[14px]">
-            <h3 className="text-xl font-[400] leading-[120%] text-nowrap">
+            <h3 className="text-xl text-[#0F2934] font-[400] leading-[120%] text-nowrap">
               {name} • {age} yrs
             </h3>
 
@@ -89,7 +89,7 @@ export const ApplicantCard: React.FC<ICandidate> = ({
               className="h-6 w-6 mr-[10px] text-[#5d5c5c]"
             />
             <div className="flex flex-col gap-y-2">
-              <p className="font-[400] text-xl leading-[120%] text-nowrap">
+              <p className="font-[400] text-xl text-[#0F2934] leading-[120%] text-nowrap">
                 {education.degree}
               </p>
               <p className="text-[18px] leading-[150%] text-[#828282] ml-1 text-nowrap">
@@ -104,7 +104,7 @@ export const ApplicantCard: React.FC<ICandidate> = ({
               className="h-[22px] w-[22px] mr-[10px] text-[#5d5c5c]"
             />
             <div className="flex flex-col gap-y-2">
-              <p className="font-[400] text-xl leading-[120%] text-nowrap">
+              <p className="font-[400] text-[#0F2934] text-xl leading-[120%] text-nowrap">
                 {experience.company}
               </p>
               <p className="text-[18px] leading-[150%] text-[#828282] ml-1 text-nowrap">
