@@ -4,12 +4,14 @@ import { SIDEBAR_DATA } from '@/data';
 import { ISidebarItem, ISubItem } from '@/types';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { CustomImage } from '@/components/atoms';
 import { cn } from '@/utils/cn';
+import { GlobalContext } from '@/contexts';
 
 export const Sidebar = () => {
   const pathname = usePathname();
+  const globalContext = useContext(GlobalContext);
   const [expandedItem, setExpandedItem] = useState<string | null>(
     'Recruitment'
   );
@@ -26,6 +28,8 @@ export const Sidebar = () => {
         false)
     );
   };
+
+  if (!globalContext!.isSidebarOpen) return null;
 
   return (
     <div className="w-full max-w-[289px] h-screen py-10 bg-white">

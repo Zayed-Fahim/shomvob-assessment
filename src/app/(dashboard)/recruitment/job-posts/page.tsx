@@ -4,7 +4,7 @@ import { tabData } from '@/data';
 
 const JobPosts = () => {
   return (
-    <div className="mt-14 mb-10 max-w-[1544px]">
+    <div className="mt-14 mb-10 w-full">
       <div className="flex flex-col gap-y-3 mb-10">
         <h1 className="text-[28px] font-semibold leading-[120%] text-[#0F2934]">
           Job Posts

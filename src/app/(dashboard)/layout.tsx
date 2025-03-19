@@ -2,6 +2,7 @@ import '../../styles/globals.css';
 import type { Metadata } from 'next';
 import { Lato } from 'next/font/google';
 import { Footer, Header, Sidebar } from '@/components/organisms';
+import Providers from '@/providers';
 
 const lato = Lato({
   variable: '--font-lato',
@@ -23,14 +24,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${lato.variable} antialiased font-sans`}>
-        <div className="flex h-screen">
-          <Sidebar />
-          <div className="flex flex-col flex-1 overflow-hidden">
-            <Header />
-            <main className="flex-1 overflow-auto px-8 w-full">{children}</main>
-            <Footer />
+        <Providers>
+          <div className="flex h-screen">
+            <Sidebar />
+            <div className="flex flex-col flex-1 overflow-hidden">
+              <Header />
+              <main className="flex-1 overflow-auto px-8 w-full">
+                {children}
+              </main>
+              <Footer />
+            </div>
           </div>
-        </div>
+        </Providers>
       </body>
     </html>
   );

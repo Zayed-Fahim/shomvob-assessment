@@ -24,7 +24,7 @@ export const ApplicantList = () => {
   };
 
   return (
-    <div className="max-w-[1544px] w-full p-8 bg-white shadow-[0_0_27px_4px_rgba(228,231,234,1)] rounded">
+    <div className="p-8 bg-white shadow-[0_0_27px_4px_rgba(228,231,234,1)] rounded w-full">
       <div className="flex flex-col gap-y-8">
         <div className="w-full flex items-center justify-between">
           <div className="flex items-center justify-start gap-x-4">
