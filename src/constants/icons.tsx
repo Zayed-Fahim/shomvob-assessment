@@ -359,3 +359,28 @@ export const DatePicker = (props: ComponentProps<'svg'>) => (
     </g>
   </svg>
 );
+
+export const Slash = (props: ComponentProps<'svg'>) => (
+  <svg
+    viewBox="0 0 15 15"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+    role="img"
+  >
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+    <g
+      id="SVGRepo_tracerCarrier"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></g>
+    <g id="SVGRepo_iconCarrier">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4.10876 14L9.46582 1H10.8178L5.46074 14H4.10876Z"
+        fill="currentColor"
+      ></path>
+    </g>
+  </svg>
+);
