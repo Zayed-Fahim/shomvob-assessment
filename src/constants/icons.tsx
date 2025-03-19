@@ -384,3 +384,90 @@ export const Slash = (props: ComponentProps<'svg'>) => (
     </g>
   </svg>
 );
+
+export const Collapse = (props: ComponentProps<'svg'>) => (
+  <svg
+    viewBox="0 0 48 48"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+    role="img"
+  >
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+    <g
+      id="SVGRepo_tracerCarrier"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></g>
+    <g id="SVGRepo_iconCarrier">
+      <rect
+        width="48"
+        height="48"
+        fill="currentColor"
+        fillOpacity="0.01"
+      ></rect>
+      <path
+        d="M8 10.5H40"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M24 19.5H40"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M24 28.5H40"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M8 37.5H40"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M8 19L16 24L8 29V19Z"
+        fill="#"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinejoin="round"
+      ></path>
+    </g>
+  </svg>
+);
+
+export const Notifications = (props: ComponentProps<'svg'>) => (
+  <svg
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    id="notification-copy"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+    role="img"
+  >
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+    <g
+      id="SVGRepo_tracerCarrier"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></g>
+    <g id="SVGRepo_iconCarrier">
+      <path
+        fill="#fff"
+        stroke="currentColor"
+        strokeWidth={2}
+        id="primary"
+        d="M19.38,14.38a2.12,2.12,0,0,1,.62,1.5h0A2.12,2.12,0,0,1,17.88,18H6.12A2.12,2.12,0,0,1,4,15.88H4a2.12,2.12,0,0,1,.62-1.5L6,13V9a6,6,0,0,1,6-6h0a6,6,0,0,1,6,6v4ZM15,18H9a3,3,0,0,0,3,3h0A3,3,0,0,0,15,18Z"
+      ></path>
+    </g>
+  </svg>
+);

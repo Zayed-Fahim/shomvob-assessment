@@ -1,7 +1,5 @@
-import React from 'react';
-import { ActionButton, CustomImage } from '../atoms';
 import { ICandidate } from '@/types';
-import { Input } from '../atoms/Input';
+import { Input, ActionButton, CustomImage } from '@/components/atoms';
 import { Bag, Calendar, Education, Location, Phone } from '@/constants';
 
 export const ApplicantCard: React.FC<ICandidate> = ({

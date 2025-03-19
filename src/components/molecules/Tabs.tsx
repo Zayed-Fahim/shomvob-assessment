@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { cn } from '@/utils';
-import { Button } from '../atoms';
+import { Button } from '@/components/atoms';
 
 interface Tab {
   id: string;
