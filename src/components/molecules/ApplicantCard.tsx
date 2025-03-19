@@ -17,7 +17,7 @@ export const ApplicantCard: React.FC<ICandidate> = ({
   actions
 }) => {
   return (
-    <div className="px-5 py-6 max-h-[228px] border border-[#d7d7d7] rounded-lg bg-white">
+    <div className="px-5 py-6 max-h-[228px] border border-[#d7d7d7] rounded-lg bg-white shadow-[0_4px_11px_0_rgba(0,0,0,0.15)]">
       <div className="grid grid-cols-3">
         {/* Left Section: Checkbox, Profile Image, and Basic Info */}
         <div className="flex">
