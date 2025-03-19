@@ -1,7 +1,7 @@
 import '../../styles/globals.css';
 import type { Metadata } from 'next';
 import { Lato } from 'next/font/google';
-import { Header, Sidebar } from '@/components/organisms';
+import { Footer, Header, Sidebar } from '@/components/organisms';
 
 const lato = Lato({
   variable: '--font-lato',
@@ -28,6 +28,7 @@ export default function RootLayout({
           <div className="flex flex-col flex-1 overflow-hidden">
             <Header />
             <main className="flex-1 overflow-auto px-8 w-full">{children}</main>
+            <Footer />
           </div>
         </div>
       </body>

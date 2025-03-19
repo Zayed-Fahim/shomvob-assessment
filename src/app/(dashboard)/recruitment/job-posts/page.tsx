@@ -12,10 +12,7 @@ const JobPosts = () => {
 
         <div className="flex items-center justify-between">
           <Breadcrumb
-            items={[
-              { label: 'Recruitment', href: '/recruitment' },
-              { label: 'Job Posts' }
-            ]}
+            items={[{ label: 'Recruitment' }, { label: 'Job Posts' }]}
           />
 
           <Tabs

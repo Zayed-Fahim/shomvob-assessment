@@ -1,4 +1,3 @@
-import React from 'react';
 import { Check, Cross } from '@/constants';
 import { cn } from '@/utils';
 import { Button } from '@/components/atoms';
