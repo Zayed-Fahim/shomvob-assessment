@@ -19,7 +19,7 @@ export const Profile = () => {
       {!(globalContext!.isMobileView || globalContext!.isTabletView) && (
         <div className="flex items-center cursor-pointer">
           <p className="text-[#0F2934] text-[18px] font-[500] leading-[120%] text-nowrap">
-            Aleea Nur Tabassum
+            Sayed Asif Zayed
           </p>
           <ArrowRight className="h-5 w-5 text-[#0F2934] rotate-90" />
         </div>

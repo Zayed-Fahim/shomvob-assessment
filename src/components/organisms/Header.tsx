@@ -37,7 +37,7 @@ export const Header = () => {
           )}
 
           <p className="text-[#0F2934] leading-[120%] text-xl font-[400] text-nowrap">
-            Welcome Aleea
+            Welcome Sayed
           </p>
         </div>
         <div className="flex items-center gap-x-8">
