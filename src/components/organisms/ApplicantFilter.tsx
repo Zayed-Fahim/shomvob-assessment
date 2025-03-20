@@ -2,7 +2,29 @@
 import { Button } from '@/components/atoms';
 import { Cross, Filter } from '@/constants';
 import { useState } from 'react';
-import { FilterItem } from '../molecules';
+import { FilterItem } from '@/components/molecules';
+
+interface RangeFilterOption {
+  label: string;
+  type: 'range';
+  min: number;
+  max: number;
+  step: number;
+  initialMin: number;
+  initialMax: number;
+  minGap: number;
+}
+
+interface SelectFilterOption {
+  label: string;
+  type: 'select';
+}
+interface NumberFilterOption {
+  label: string;
+  type: 'number';
+}
+
+type FilterOption = RangeFilterOption | SelectFilterOption | NumberFilterOption;
 
 export const ApplicantFilter = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,12 +38,39 @@ export const ApplicantFilter = () => {
     setActiveFilter(activeFilter === label ? null : label);
   };
 
-  const filterOptions = [
-    { label: 'Age', type: 'range' },
-    { label: 'Educational Qualification', type: 'normal' },
-    { label: 'Year of Experience', type: 'normal' },
-    { label: 'Expected Salary Range', type: 'range' },
-    { label: 'Gender', type: 'normal' }
+  const filterOptions: FilterOption[] = [
+    {
+      label: 'Age',
+      type: 'range',
+      min: 18,
+      max: 65,
+      step: 1,
+      initialMin: 18,
+      initialMax: 65,
+      minGap: 2
+    },
+    {
+      label: 'Educational Qualification',
+      type: 'select'
+    },
+    {
+      label: 'Year of Experience',
+      type: 'number'
+    },
+    {
+      label: 'Expected Salary Range',
+      type: 'range',
+      min: 1000,
+      max: 100000,
+      step: 1000,
+      initialMin: 1000,
+      initialMax: 100000,
+      minGap: 1000
+    },
+    {
+      label: 'Gender',
+      type: 'select'
+    }
   ];
 
   return (
@@ -41,7 +90,10 @@ export const ApplicantFilter = () => {
             </p>
             <Cross
               className="h-[26px] w-[26px] text-[#828282] cursor-pointer"
-              onClick={toggleFilter}
+              onClick={() => {
+                toggleFilter();
+                setActiveFilter(null);
+              }}
             />
           </div>
 
@@ -52,7 +104,19 @@ export const ApplicantFilter = () => {
               isLastItem={index === filterOptions.length - 1}
               isActive={activeFilter === option.label}
               toggleFilterItem={toggleFilterItem}
-              showRangeSlider={option.type === 'range'}
+              {...(option.type === 'range'
+                ? {
+                    type: option.type,
+                    min: option.min,
+                    max: option.max,
+                    step: option.step,
+                    initialMin: option.initialMin,
+                    initialMax: option.initialMax,
+                    minGap: option.minGap
+                  }
+                : {
+                    type: option.type
+                  })}
             />
           ))}
         </div>

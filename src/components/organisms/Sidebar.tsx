@@ -12,9 +12,7 @@ import { GlobalContext } from '@/contexts';
 export const Sidebar = () => {
   const pathname = usePathname();
   const globalContext = useContext(GlobalContext);
-  const [expandedItem, setExpandedItem] = useState<string | null>(
-    'Recruitment'
-  );
+  const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
   const toggleExpand = (label: string) => {
     setExpandedItem(expandedItem === label ? null : label);

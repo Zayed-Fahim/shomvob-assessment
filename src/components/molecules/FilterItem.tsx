@@ -1,13 +1,19 @@
-import { ArrowRight } from '@/constants';
-import { cn } from '@/utils';
-import { RangeSlider } from './RangeSlider';
+import { Search } from '@/constants';
+import { Input, Select } from '@/components/atoms';
+import { FilterSection, RangeSlider } from '@/components/molecules';
 
 interface FilterItemProps {
   label: string;
   isLastItem?: boolean;
   isActive: boolean;
   toggleFilterItem: (label: string) => void;
-  showRangeSlider?: boolean;
+  type: 'range' | 'select' | 'number';
+  min?: number;
+  max?: number;
+  step?: number;
+  initialMin?: number;
+  initialMax?: number;
+  minGap?: number;
 }
 
 export const FilterItem: React.FC<FilterItemProps> = ({
@@ -15,32 +21,97 @@ export const FilterItem: React.FC<FilterItemProps> = ({
   label,
   isActive,
   toggleFilterItem,
-  showRangeSlider
+  type,
+  min,
+  max,
+  step,
+  initialMin,
+  initialMax,
+  minGap
 }) => {
+  const handleClick = () => toggleFilterItem(label);
+
   return (
     <div className="w-full">
-      <div
-        className={cn(
-          'flex justify-between items-center py-4 px-5 text-[#F8F8F8] cursor-pointer hover:bg-[#1A3A4A]',
-          !isLastItem && 'border-b border-[#5D5C5C]',
-          isLastItem && 'hover:rounded-bl-lg hover:rounded-br-lg',
-          isActive && showRangeSlider && 'border-none'
+      <FilterSection
+        label={label}
+        isActive={isActive}
+        onClick={handleClick}
+        isLastItem={isLastItem}
+      />
+
+      {isActive &&
+        type === 'range' &&
+        min !== undefined &&
+        max !== undefined && (
+          <div className="pl-5 pr-[26px] py-4">
+            <RangeSlider
+              minValue={min}
+              maxValue={max}
+              step={step || 1}
+              initialMin={initialMin || min}
+              initialMax={initialMax || max}
+              minGap={minGap || 1}
+              onChange={(range) => console.log(`${label} Range:`, range)}
+            />
+          </div>
         )}
-        onClick={() => toggleFilterItem(label)}
-      >
-        <p className="text-[18px] leading-[120%] font-[500]">{label}</p>
-        <ArrowRight className="h-[26px] w-[26px]" />
-      </div>
-      {isActive && showRangeSlider && (
+
+      {isActive &&
+        type === 'select' &&
+        label === 'Educational Qualification' && (
+          <div className="pl-5 pr-[26px] py-4 flex flex-col gap-2">
+            <Input
+              placeholder="Search Institutes"
+              className="px-5 py-[11.5px] rounded-lg placeholder:text-[#828282] bg-white leading-[120%] text-base focus:outline-none focus:ring-0 cursor-pointer"
+              icon={<Search />}
+              iconClassName="text-[#828282] right-5 top-1/2 translate-x-1/2 -translate-y-1/2 h-5 w-5"
+            />
+            <Input
+              placeholder="Degree Name"
+              className="px-5 py-[11.5px] rounded-lg placeholder:text-[#828282] bg-white leading-[120%] text-base focus:outline-none focus:ring-0 cursor-pointer"
+              icon={<Search />}
+              iconClassName="text-[#828282] right-5 top-1/2 translate-x-1/2 -translate-y-1/2 h-5 w-5"
+            />
+            <Select
+              options={[
+                { value: '', label: 'Degree Level' },
+                { value: 'Bachelor', label: 'Bachelor' },
+                { value: 'Master', label: 'Master' },
+                { value: 'PhD', label: 'PhD' }
+              ]}
+            />
+            <Select
+              options={[
+                { value: '', label: 'Result' },
+                { value: 'First Class', label: 'First Class' },
+                { value: 'Second Class', label: 'Second Class' },
+                { value: 'Third Class', label: 'Third Class' }
+              ]}
+            />
+          </div>
+        )}
+
+      {isActive && label === 'Year of Experience' && (
         <div className="pl-5 pr-[26px] py-4">
-          <RangeSlider
-            minValue={0}
-            maxValue={50}
-            step={1}
-            initialMin={0}
-            initialMax={50}
-            minGap={2}
-            onChange={(range) => console.log('Selected Age Range:', range)}
+          <Input
+            type="number"
+            min={0}
+            defaultValue={0}
+            className="w-full px-5 py-[11.5px] rounded-lg bg-white text-[#828282] leading-[120%] text-base focus:outline-none focus:ring-0 cursor-pointer"
+          />
+        </div>
+      )}
+
+      {isActive && label === 'Gender' && (
+        <div className="pl-5 pr-[26px] py-4">
+          <Select
+            options={[
+              { value: '', label: 'Gender' },
+              { value: 'Male', label: 'Male' },
+              { value: 'Female', label: 'Female' },
+              { value: 'Other', label: 'Other' }
+            ]}
           />
         </div>
       )}
