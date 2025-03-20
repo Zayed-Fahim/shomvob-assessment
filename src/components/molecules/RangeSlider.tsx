@@ -35,7 +35,6 @@ export const RangeSlider = ({
   const [minThumb, setMinThumb] = useState(0);
   const [maxThumb, setMaxThumb] = useState(0);
 
-  // Update thumb positions
   const calculateThumbs = useCallback(() => {
     const newMinThumb = ((minPrice - minValue) / (maxValue - minValue)) * 100;
     const newMaxThumb =
@@ -47,7 +46,6 @@ export const RangeSlider = ({
     onChange({ min: minPrice, max: maxPrice });
   }, [minPrice, maxPrice, minValue, maxValue, onChange]);
 
-  // Min price change
   const handleMinChange = useCallback(
     (value: number) => {
       const newMinPrice = Math.max(
@@ -59,7 +57,6 @@ export const RangeSlider = ({
     [maxPrice, minValue, minGap]
   );
 
-  // Max price change
   const handleMaxChange = useCallback(
     (value: number) => {
       const newMaxPrice = Math.min(
@@ -71,7 +68,6 @@ export const RangeSlider = ({
     [minPrice, maxValue, minGap]
   );
 
-  // Handle input change for sliders
   const handleMinInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value);
     if (!isNaN(value)) handleMinChange(value);
@@ -82,7 +78,6 @@ export const RangeSlider = ({
     if (!isNaN(value)) handleMaxChange(value);
   };
 
-  // Effect to update thumb positions
   useEffect(() => {
     calculateThumbs();
   }, [minPrice, maxPrice, calculateThumbs]);
@@ -90,7 +85,6 @@ export const RangeSlider = ({
   return (
     <div className={`relative w-full ${className}`}>
       <div className="relative">
-        {/* Hidden Range Inputs */}
         <input
           type="range"
           step={step}
@@ -110,7 +104,6 @@ export const RangeSlider = ({
           className="absolute pointer-events-none appearance-none z-20 w-full opacity-0 cursor-pointer"
         />
 
-        {/* Track & Range */}
         <div className={`relative ${trackHeight}`}>
           <div
             className={`absolute left-0 right-0 top-0 bottom-0 rounded-md ${backgroundColor}`}
@@ -121,7 +114,6 @@ export const RangeSlider = ({
           />
         </div>
 
-        {/* Thumb Controls */}
         <div
           className={`absolute z-30 w-5 h-5 border-2 border-[#828282] bg-[#FFFFFF] ${thumbColor} rounded-full -mt-3 cursor-pointer`}
           style={{ left: `${minThumb}%`, transform: 'translateX(-50%)' }}
@@ -132,7 +124,6 @@ export const RangeSlider = ({
         />
       </div>
 
-      {/* Min & Max Input Fields */}
       <div className="flex justify-between items-center pt-5">
         <input
           type="text"

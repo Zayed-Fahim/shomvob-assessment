@@ -44,7 +44,7 @@ export const FilterItem: React.FC<FilterItemProps> = ({
         type === 'range' &&
         min !== undefined &&
         max !== undefined && (
-          <div className="pl-5 pr-[26px] py-4">
+          <div className="px-4 sm:pl-5 sm:pr-[26px] py-3 sm:py-4">
             <RangeSlider
               minValue={min}
               maxValue={max}
@@ -60,18 +60,18 @@ export const FilterItem: React.FC<FilterItemProps> = ({
       {isActive &&
         type === 'select' &&
         label === 'Educational Qualification' && (
-          <div className="pl-5 pr-[26px] py-4 flex flex-col gap-2">
+          <div className="px-4 sm:pl-5 sm:pr-[26px] py-3 sm:py-4 flex flex-col gap-2">
             <Input
               placeholder="Search Institutes"
-              className="px-5 py-[11.5px] rounded-lg placeholder:text-[#828282] bg-white leading-[120%] text-base focus:outline-none focus:ring-0 cursor-pointer"
+              className="px-3 sm:px-5 py-2 sm:py-[11.5px] rounded-lg placeholder:text-[#828282] bg-white leading-[120%] text-sm sm:text-base focus:outline-none focus:ring-0 cursor-pointer"
               icon={<Search />}
-              iconClassName="text-[#828282] right-5 top-1/2 translate-x-1/2 -translate-y-1/2 h-5 w-5"
+              iconClassName="text-[#828282] right-3 sm:right-5 top-1/2 translate-x-1/2 -translate-y-1/2 h-4 sm:h-5 w-4 sm:w-5"
             />
             <Input
               placeholder="Degree Name"
-              className="px-5 py-[11.5px] rounded-lg placeholder:text-[#828282] bg-white leading-[120%] text-base focus:outline-none focus:ring-0 cursor-pointer"
+              className="px-3 sm:px-5 py-2 sm:py-[11.5px] rounded-lg placeholder:text-[#828282] bg-white leading-[120%] text-sm sm:text-base focus:outline-none focus:ring-0 cursor-pointer"
               icon={<Search />}
-              iconClassName="text-[#828282] right-5 top-1/2 translate-x-1/2 -translate-y-1/2 h-5 w-5"
+              iconClassName="text-[#828282] right-3 sm:right-5 top-1/2 translate-x-1/2 -translate-y-1/2 h-4 sm:h-5 w-4 sm:w-5"
             />
             <Select
               options={[
@@ -80,6 +80,7 @@ export const FilterItem: React.FC<FilterItemProps> = ({
                 { value: 'Master', label: 'Master' },
                 { value: 'PhD', label: 'PhD' }
               ]}
+              className="text-sm sm:text-base"
             />
             <Select
               options={[
@@ -88,23 +89,24 @@ export const FilterItem: React.FC<FilterItemProps> = ({
                 { value: 'Second Class', label: 'Second Class' },
                 { value: 'Third Class', label: 'Third Class' }
               ]}
+              className="text-sm sm:text-base"
             />
           </div>
         )}
 
       {isActive && label === 'Year of Experience' && (
-        <div className="pl-5 pr-[26px] py-4">
+        <div className="px-4 sm:pl-5 sm:pr-[26px] py-3 sm:py-4">
           <Input
             type="number"
             min={0}
             defaultValue={0}
-            className="w-full px-5 py-[11.5px] rounded-lg bg-white text-[#828282] leading-[120%] text-base focus:outline-none focus:ring-0 cursor-pointer"
+            className="w-full px-3 sm:px-5 py-2 sm:py-[11.5px] rounded-lg bg-white text-[#828282] leading-[120%] text-sm sm:text-base focus:outline-none focus:ring-0 cursor-pointer"
           />
         </div>
       )}
 
       {isActive && label === 'Gender' && (
-        <div className="pl-5 pr-[26px] py-4">
+        <div className="px-4 sm:pl-5 sm:pr-[26px] py-3 sm:py-4">
           <Select
             options={[
               { value: '', label: 'Gender' },
@@ -112,6 +114,7 @@ export const FilterItem: React.FC<FilterItemProps> = ({
               { value: 'Female', label: 'Female' },
               { value: 'Other', label: 'Other' }
             ]}
+            className="text-sm sm:text-base"
           />
         </div>
       )}

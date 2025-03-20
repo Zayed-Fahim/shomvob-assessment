@@ -6,11 +6,7 @@ interface SelectProps {
   className?: string;
 }
 
-export const Select: React.FC<SelectProps> = ({
-  options,
-  //   defaultValue,
-  className
-}) => {
+export const Select: React.FC<SelectProps> = ({ options, className }) => {
   return (
     <select
       className={cn(

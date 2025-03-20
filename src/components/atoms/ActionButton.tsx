@@ -20,9 +20,9 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
 
   const icon =
     text === 'Reject' ? (
-      <Cross className="text-white h-10 w-10" />
+      <Cross className="text-white h-8 w-8 md:h-10 md:w-10" />
     ) : (
-      <Check className="text-white h-9 w-9" />
+      <Check className="text-white h-7 w-7 md:h-9 md:w-9" />
     );
 
   const variantMap = {
@@ -38,7 +38,11 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
         {icon}
       </Button>
 
-      <p className={cn('text-xl leading-[120%]', textStyles[text])}>{text}</p>
+      <p
+        className={cn('text-base md:text-xl leading-[120%]', textStyles[text])}
+      >
+        {text}
+      </p>
     </div>
   );
 };

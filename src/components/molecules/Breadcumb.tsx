@@ -27,14 +27,14 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
             <Link
               href={item.href}
               onClick={item.onClick}
-              className="text-xl leading-[120%] font-[400] text-[#828282]"
+              className="text-xl leading-[120%] font-[400] text-[#828282] text-nowrap"
             >
               {item.label}
             </Link>
           ) : (
             <span
               className={cn(
-                'text-xl leading-[120%] font-[400]',
+                'text-xl leading-[120%] font-[400] text-nowrap',
                 index !== 0 ? 'text-[#0378E3]' : 'text-[#828282]'
               )}
             >
