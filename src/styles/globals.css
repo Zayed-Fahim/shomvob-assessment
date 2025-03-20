@@ -22,3 +22,10 @@ body {
   color: var(--foreground);
   font-family: var(--font-lato), Arial, Helvetica, sans-serif;
 }
+
+input[type='range']::-webkit-slider-thumb {
+  pointer-events: all;
+  width: 24px;
+  height: 24px;
+  -webkit-appearance: none;
+}

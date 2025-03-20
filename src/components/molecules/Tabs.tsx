@@ -37,7 +37,7 @@ export const Tabs: React.FC<TabsProps> = ({
               {tab.label}: {tab.count <= 9 ? `0${tab.count}` : tab.count}
             </Button>
             {activeTab === index && (
-              <div className="h-[3px] w-full bg-[#0378E3]" />
+              <div className="h-[3px] w-full bg-[#0378E3] rounded-full" />
             )}
           </div>
         ))}

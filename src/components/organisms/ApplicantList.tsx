@@ -3,9 +3,10 @@ import { candidates } from '@/data';
 import { ApplicantCard, ApplicantListHeader } from '@/components/molecules';
 import { Button, Pagination } from '@/components/atoms';
 import { useState } from 'react';
-import { Back, DatePicker, Filter, Search, Sort } from '@/constants';
+import { Back, DatePicker, Search, Sort } from '@/constants';
 import { cn } from '@/utils';
 import { useRouter } from 'next/navigation';
+import { ApplicantFilter } from '@/components/organisms';
 
 export const ApplicantList = () => {
   const router = useRouter();
@@ -39,9 +40,9 @@ export const ApplicantList = () => {
             <Button className="px-5 py-4 bg-[#F4F4F5] rounded-lg">
               <Search className="h-[26px] w-[26px] text-[#828282]" />
             </Button>
-            <Button className="px-5 py-4 bg-[#F4F4F5] rounded-lg">
-              <Filter className="h-[26px] w-[26px] text-[#828282]" />
-            </Button>
+
+            <ApplicantFilter />
+
             <Button className="px-5 py-4 bg-[#F4F4F5] rounded-lg">
               <Sort className="h-[26px] w-[26px] text-[#828282]" />
             </Button>
