@@ -14,7 +14,7 @@ export const ApplicantList = () => {
   const globalContext = useContext(GlobalContext);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 50;
-  const totalItems = 127;
+  const totalItems = 130;
 
   const handlePrevious = () => {
     setCurrentPage((prev) => Math.max(prev - 1, 1));
